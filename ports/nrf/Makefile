@@ -211,11 +211,17 @@ DRIVERS_SRC_C += $(addprefix modules/,\
 	machine/rtcounter.c \
 	machine/pwm.c \
 	machine/temp.c \
+	machine/lcd.c \
+	machine/soft_i2c.c \
+	machine/mpu6050.c \
+	machine/inv_mpu.c \
+	machine/inv_mpu_dmp_motion_driver.c \
 	uos/moduos.c \
 	uos/microbitfs.c \
 	utime/modutime.c \
 	board/modboard.c \
 	board/led.c \
+	board/button.c \
 	ubluepy/modubluepy.c \
 	ubluepy/ubluepy_peripheral.c \
 	ubluepy/ubluepy_service.c \
