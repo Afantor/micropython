@@ -948,6 +948,20 @@ STATIC mp_obj_t machine_mpu_getAccel(mp_obj_t self_in) {
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_1(mp_machine_mpu_getAccel_obj, machine_mpu_getAccel);
 
+/// \method getAccel_Zoffset()
+/// mpu6050 get Accelerometer.
+STATIC mp_obj_t machine_mpu_getAccel_Zoffset(mp_obj_t self_in) {
+    machine_mpu_obj_t *self = self_in;
+    short aacx,aacy,aacz;       //加速度传感器原始数据
+
+    (void)self;
+
+    MPU_Get_Accelerometer(&aacx,&aacy,&aacz);   //得到加速度传感器数据
+
+    return mp_obj_new_int(aacz);
+}
+STATIC MP_DEFINE_CONST_FUN_OBJ_1(mp_machine_mpu_getAccel_Zoffset_obj, machine_mpu_Zoffset);
+
 /// \method getGyros()
 /// mpu6050 get Gyroscope.
 STATIC mp_obj_t machine_mpu_getGyros(mp_obj_t self_in) {
@@ -1201,6 +1215,7 @@ STATIC const mp_rom_map_elem_t machine_mpu_locals_dict_table[] = {
     { MP_ROM_QSTR(MP_QSTR_DMPinit), MP_ROM_PTR(&mp_machine_mpu_DMPinit_obj) },
     { MP_ROM_QSTR(MP_QSTR_getTemp), MP_ROM_PTR(&mp_machine_mpu_getTemp_obj) },
     { MP_ROM_QSTR(MP_QSTR_getAccel), MP_ROM_PTR(&mp_machine_mpu_getAccel_obj) },
+    { MP_ROM_QSTR(MP_QSTR_getAccel_Zoffset), MP_ROM_PTR(&mp_machine_mpu_getAccel_Zoffset_obj) },
     { MP_ROM_QSTR(MP_QSTR_getGyros), MP_ROM_PTR(&mp_machine_mpu_getGyros_obj) },
     { MP_ROM_QSTR(MP_QSTR_getDMPdata), MP_ROM_PTR(&mp_machine_mpu_getDMPdata_obj) },
     { MP_ROM_QSTR(MP_QSTR_getAccel_x), MP_ROM_PTR(&mp_machine_mpu_getAccel_x_obj) },
