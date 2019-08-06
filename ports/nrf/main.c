@@ -59,9 +59,6 @@
 #if MICROPY_PY_MACHINE_LCD
 #include "lcd.h"
 #endif
-#if MICROPY_PY_MACHINE_MPU6050
-#include "mpu6050.h"
-#endif
 #include "timer.h"
 
 #if BLUETOOTH_SD
@@ -213,10 +210,6 @@ pin_init0();
 
 #if (MICROPY_PY_MACHINE_LCD)
     lcd_init(3);
-#endif
-#if (MICROPY_PY_MACHINE_MPU6050)
-    // twi_init0();
-    // twi_scan();
 #endif
     // Main script is finished, so now go into REPL mode.
     // The REPL mode can change, or it can request a soft reset.
